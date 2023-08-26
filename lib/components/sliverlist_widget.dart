@@ -19,7 +19,7 @@ class SliverlistWidget extends StatelessWidget {
             child: IconGridWidget(),
           ),
           Container(
-            height: 500,
+            height: 200,
             color: Colors.white,
           ),
         ],
