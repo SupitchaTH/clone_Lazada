@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -20,12 +22,26 @@ class _CardviewWidgetState extends State<CardviewWidget> {
   int _activeCard = 0;
 
   @override
+  void initState() {
+    super.initState();
+    Timer.periodic(Duration(seconds: 4), (Timer timer) {
+      if (_activeCard < _pages.length) {
+        _activeCard++;
+      } else {
+        _activeCard = 0;
+      }
+      _cardCtr.animateToPage(_activeCard,
+          duration: Duration(milliseconds: 200), curve: Curves.easeIn);
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Container(
         color: Colors.white,
-        height: 150,
+        height: 140,
         child: Card(
           color: Colors.deepPurple[700],
           shape:

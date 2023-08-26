@@ -1,9 +1,13 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 class AppbarWidget extends StatelessWidget implements PreferredSizeWidget {
   AppbarWidget({super.key});
+
+  TextEditingController searchTextCtrl = TextEditingController();
 
   @override
   Size get preferredSize => const Size.fromHeight(90);
@@ -76,15 +80,18 @@ class AppbarWidget extends StatelessWidget implements PreferredSizeWidget {
           title: Container(
             width: double.infinity,
             height: 40,
-            color: Colors.white,
             child: Center(
               child: TextFormField(
+                controller: searchTextCtrl,
+                showCursor: true,
+                cursorColor: Colors.grey[500],
+                style: TextStyle(color: Colors.black),
                 decoration: InputDecoration(
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide(
                       width: 2,
-                      color: Colors.deepOrange,
+                      color: Colors.grey,
                     ),
                   ),
                   border: OutlineInputBorder(

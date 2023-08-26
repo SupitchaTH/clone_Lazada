@@ -1,4 +1,5 @@
 import 'package:clone_lazada/components/cardview_widget.dart';
+import 'package:clone_lazada/components/icongrid_widget.dart';
 import 'package:flutter/material.dart';
 
 class SliverlistWidget extends StatelessWidget {
@@ -13,10 +14,10 @@ class SliverlistWidget extends StatelessWidget {
             child: CardviewWidget(),
           ),
           Container(
-            height: 250,
+            height: 200,
             color: Colors.white,
+            child: IconGridWidget(),
           ),
-          Spacer(),
           Container(
             height: 500,
             color: Colors.white,
